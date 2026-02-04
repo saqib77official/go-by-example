@@ -1,8 +1,10 @@
 # Go by Example
 
-A comprehensive collection of Go programming examples covering fundamental concepts and language features. Each file contains practical examples with detailed explanations to help you learn Go programming.
+A comprehensive collection of Go programming examples covering fundamental concepts, advanced features, and modern Go patterns. Each file contains practical examples with detailed explanations to help you learn Go programming from beginner to advanced level.
 
 ## 📁 Files Overview
+
+### 🌱 **Beginner Examples (13 files)**
 
 ### 📋 [variables.go](./variables.go)
 **Variable Declarations and Usage**
@@ -230,7 +232,258 @@ func binarySearch(arr []int, target, left, right int) int { }
 
 ---
 
-## 🚀 Getting Started
+## 🔧 Advanced Go Concepts
+
+### 🚀 **Intermediate & Advanced Examples (15 files)**
+
+### 🔄 [range-over-built-in-types.go](./range-over-built-in-types.go)
+**Range Over Built-in Types**
+- Range over slices, arrays, strings, maps, channels
+- Different iteration patterns (index/value, values only, keys only)
+- Range over complex data structures
+- Range with early termination and modification
+
+**Key Concepts:**
+```go
+for index, value := range slice { }
+for key, value := range map { }
+for index, rune := range string { }
+for value := range channel { }
+```
+
+---
+
+### 🎯 [pointers.go](./pointers.go)
+**Pointer Operations**
+- Pointer declaration and dereferencing
+- Pointers with functions and structs
+- Pointer to pointer concepts
+- Memory management and comparison
+
+**Key Concepts:**
+```go
+var p *int = &x
+*p = 42
+func modify(ptr *Type) { }
+```
+
+---
+
+### 📝 [strings-and-runes.go](./strings-and-runes.go)
+**String and Rune Manipulation**
+- String operations and formatting
+- Unicode and rune handling
+- String conversion and validation
+- Text processing patterns
+
+**Key Concepts:**
+```go
+runes := []rune("Hello, 世界")
+strings.Contains(s, substr)
+strings.Split(s, sep)
+```
+
+---
+
+### 🏗️ [structs.go](./structs.go)
+**Struct Operations**
+- Struct definition and initialization
+- Nested structs and pointers
+- Struct comparison and copying
+- Struct tags and zero values
+
+**Key Concepts:**
+```go
+type Person struct { Name string; Age int }
+person := Person{Name: "Alice", Age: 25}
+personPtr := &person
+```
+
+---
+
+### ⚙️ [methods.go](./methods.go)
+**Method Definitions**
+- Value vs pointer receivers
+- Method promotion and overriding
+- Method expressions and values
+- Interface implementation through methods
+
+**Key Concepts:**
+```go
+func (r Rectangle) Area() float64 { }
+func (c *Counter) Increment() { }
+areaFunc := Rectangle.Area
+```
+
+---
+
+### 🔌 [interfaces.go](./interfaces.go)
+**Interface Implementation**
+- Interface definition and implementation
+- Empty interface and type assertions
+- Interface composition
+- Dynamic polymorphism
+
+**Key Concepts:**
+```go
+type Shape interface { Area() float64 }
+var s Shape = &Circle{}
+if val, ok := s.(*Circle) { }
+```
+
+---
+
+### 🏷️ [enums.go](./enums.go)
+**Enumeration Patterns**
+- Enum patterns with iota
+- String enums and bitmask enums
+- Enum validation and iteration
+- State machine patterns
+
+**Key Concepts:**
+```go
+const (
+    RED = iota
+    GREEN
+    BLUE
+)
+type Status int
+```
+
+---
+
+### 🔗 [struct-embedding.go](./struct-embedding.go)
+**Struct Embedding**
+- Basic and multiple embedding
+- Method promotion and overriding
+- Name conflict resolution
+- Composition patterns
+
+**Key Concepts:**
+```go
+type Employee struct {
+    Person
+    EmployeeID int
+}
+emp.Name // Promoted field
+```
+
+---
+
+### 🔧 [generics.go](./generics.go)
+**Generic Programming**
+- Generic functions and structs
+- Type constraints and interfaces
+- Generic collections and algorithms
+- Real-world generic patterns
+
+**Key Concepts:**
+```go
+func Print[T any](value T) { }
+type Container[T any] struct { data []T }
+type Number interface { int | float64 }
+```
+
+---
+
+### 🔄 [range-over-iterators.go](./range-over-iterators.go)
+**Custom Iterators**
+- Custom iterator functions
+- Iterator composition and chaining
+- Tree traversal with iterators
+- Iterator with early termination
+
+**Key Concepts:**
+```go
+func numbers() iter.Seq[int] { }
+for num := range numbers() { }
+type TreeNode struct { ... }
+```
+
+---
+
+### ❌ [errors.go](./errors.go)
+**Error Handling**
+- Error creation and handling
+- Error wrapping and unwrapping
+- Error checking with `errors.Is` and `errors.As`
+- Panic and recover patterns
+
+**Key Concepts:**
+```go
+errors.New("error message")
+fmt.Errorf("context: %w", err)
+errors.Is(err, targetErr)
+```
+
+---
+
+### 🚨 [custom-errors.go](./custom-errors.go)
+**Custom Error Types**
+- Custom error types with methods
+- Error with context and metadata
+- Business logic errors
+- Error aggregation and retry patterns
+
+**Key Concepts:**
+```go
+type AppError struct { Code int; Message string }
+func (ae *AppError) Error() string { }
+type ValidationError struct { Field string }
+```
+
+---
+
+### 🚀 [goroutines.go](./goroutines.go)
+**Concurrent Programming**
+- Basic goroutine usage
+- WaitGroup synchronization
+- Worker pool patterns
+- Atomic operations and mutexes
+
+**Key Concepts:**
+```go
+go func() { }()
+var wg sync.WaitGroup
+wg.Add(1); defer wg.Done()
+atomic.AddInt64(&counter, 1)
+```
+
+---
+
+### 📡 [channels.go](./channels.go)
+**Channel Communication**
+- Channel operations and directions
+- Select statements and timeouts
+- Fan-in/fan-out patterns
+- Channel pipelines
+
+**Key Concepts:**
+```go
+ch := make(chan Type)
+select { case <-ch: case <-time.After(): }
+for val := range ch { }
+```
+
+---
+
+### 📦 [channel-buffering.go](./channel-buffering.go)
+**Buffered Channels**
+- Buffered vs unbuffered channels
+- Buffering for performance
+- Semaphore patterns
+- Rate limiting and batching
+
+**Key Concepts:**
+```go
+ch := make(chan int, 10)
+semaphore := make(chan struct{}, 3)
+select { case ch <- val: default: }
+```
+
+---
+
+## � Getting Started
 
 ### Prerequisites
 - Go installed (version 1.18 or later)
@@ -253,10 +506,30 @@ go build functions.go && ./functions
 
 ### Learning Path
 
+#### 🌱 Beginner Level
 1. **Start with basics:** `variables.go` → `constants.go` → `functions.go`
 2. **Control flow:** `for.go` → `if-else.go` → `switch.go`
 3. **Data structures:** `arrays.go` → `slices.go` → `maps.go`
-4. **Advanced concepts:** `multiple-return-values.go` → `variadic-functions.go` → `closures.go` → `recursion.go`
+4. **Function concepts:** `multiple-return-values.go` → `variadic-functions.go` → `closures.go` → `recursion.go`
+
+#### 🚀 Intermediate Level
+5. **Range operations:** `range-over-built-in-types.go`
+6. **Memory management:** `pointers.go`
+7. **Text processing:** `strings-and-runes.go`
+8. **Data modeling:** `structs.go` → `methods.go` → `struct-embedding.go`
+9. **Abstraction:** `interfaces.go` → `enums.go`
+
+#### 🔥 Advanced Level
+10. **Modern Go:** `generics.go` → `range-over-iterators.go`
+11. **Error handling:** `errors.go` → `custom-errors.go`
+12. **Concurrency:** `goroutines.go` → `channels.go` → `channel-buffering.go`
+
+#### 📚 Quick Reference
+- **Total Examples:** 28 files
+- **Beginner:** 13 files
+- **Intermediate:** 7 files  
+- **Advanced:** 8 files
+- **Estimated Learning Time:** 2-4 weeks
 
 ### Code Style
 
