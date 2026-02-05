@@ -818,7 +818,551 @@ defer func() {
 
 ---
 
-## � Getting Started
+## 🌐 Practical Go Examples
+
+### 🚀 **Practical Examples (35 files)**
+
+### 📝 [string-functions.go](./string-functions.go)
+**String Functions**
+- String length and manipulation
+- Contains, index, replace operations
+- Split, join, trim operations
+- Prefix/suffix checking
+
+**Key Concepts:**
+```go
+strings.Contains(s, substr)
+strings.Split(s, sep)
+strings.Join(slice, sep)
+```
+
+---
+
+### 🎨 [string-formatting.go](./string-formatting.go)
+**String Formatting**
+- Printf formatting verbs
+- String builder usage
+- Width and alignment
+- Number formatting
+
+**Key Concepts:**
+```go
+fmt.Printf("%s %d", name, age)
+fmt.Sprintf("formatted", args)
+```
+
+---
+
+### 📋 [text-templates.go](./text-templates.go)
+**Text Templates**
+- Template parsing and execution
+- Conditional rendering
+- Loop iteration
+- Data binding
+
+**Key Concepts:**
+```go
+template.Parse(text)
+template.Execute(writer, data)
+```
+
+---
+
+### 🔍 [regular-expressions.go](./regular-expressions.go)
+**Regular Expressions**
+- Pattern matching
+- Find and replace operations
+- Group capturing
+- Validation patterns
+
+**Key Concepts:**
+```go
+regexp.MustCompile(pattern)
+re.FindAllString(text, -1)
+re.ReplaceAllString(text, repl)
+```
+
+---
+
+### 📄 [json.go](./json.go)
+**JSON Operations**
+- Marshal and unmarshal
+- Struct tags
+- Pretty printing
+- Dynamic JSON handling
+
+**Key Concepts:**
+```go
+json.Marshal(data)
+json.Unmarshal([]byte, &struct)
+```
+
+---
+
+### 🏷️ [xml.go](./xml.go)
+**XML Operations**
+- XML encoding/decoding
+- Nested structures
+- XML tags and attributes
+- Pretty printing
+
+**Key Concepts:**
+```go
+xml.Marshal(data)
+xml.Unmarshal([]byte, &struct)
+```
+
+---
+
+### ⏰ [time.go](./time.go)
+**Time Operations**
+- Current time and components
+- Time arithmetic
+- Time zones
+- Time comparison
+
+**Key Concepts:**
+```go
+time.Now()
+time.Date(year, month, day)
+time.Add(duration)
+```
+
+---
+
+### 🕐 [epoch.go](./epoch.go)
+**Epoch Time**
+- Unix timestamp conversion
+- Seconds/milliseconds/nanoseconds
+- Time calculations
+- Duration from epoch
+
+**Key Concepts:**
+```go
+t.Unix(seconds, nanos)
+t.Unix()
+t.UnixMilli()
+```
+
+---
+
+### 📅 [time-formatting-parsing.go](./time-formatting-parsing.go)
+**Time Formatting & Parsing**
+- Standard time formats
+- Custom formatting patterns
+- Time parsing
+- Time zone handling
+
+**Key Concepts:**
+```go
+t.Format(layout)
+time.Parse(layout, string)
+```
+
+---
+
+### 🎲 [random-numbers.go](./random-numbers.go)
+**Random Numbers**
+- Random integers and floats
+- String generation
+- UUID creation
+- Array shuffling
+
+**Key Concepts:**
+```go
+rand.Intn(n)
+rand.Float64()
+rand.Seed(time.Now().UnixNano())
+```
+
+---
+
+### 🔢 [number-parsing.go](./number-parsing.go)
+**Number Parsing**
+- String to number conversion
+- Different bases
+- Error handling
+- Number formatting
+
+**Key Concepts:**
+```go
+strconv.Atoi(s)
+strconv.ParseInt(s, base, bits)
+strconv.Itoa(i)
+```
+
+---
+
+### 🌐 [url-parsing.go](./url-parsing.go)
+**URL Parsing**
+- URL decomposition
+- Query parameters
+- URL building
+- Encoding/decoding
+
+**Key Concepts:**
+```go
+url.Parse(rawURL)
+url.Values.Encode()
+url.QueryEscape(s)
+```
+
+---
+
+### 🔐 [sha256-hashes.go](./sha256-hashes.go)
+**SHA256 Hashes**
+- Hash generation
+- Incremental hashing
+- Hash comparison
+- Binary data hashing
+
+**Key Concepts:**
+```go
+sha256.Sum256([]byte)
+hex.EncodeToString(hash)
+```
+
+---
+
+### 📦 [base64-encoding.go](./base64-encoding.go)
+**Base64 Encoding**
+- Encode/decode operations
+- URL-safe encoding
+- Binary data handling
+- Validation
+
+**Key Concepts:**
+```go
+base64.StdEncoding.EncodeToString([]byte)
+base64.StdEncoding.DecodeString(s)
+```
+
+---
+
+### 📖 [reading-files.go](./reading-files.go)
+**Reading Files**
+- Read entire file
+- Line by line reading
+- Buffered reading
+- File information
+
+**Key Concepts:**
+```go
+os.ReadFile(name)
+bufio.Scanner(file)
+file.Read(buffer)
+```
+
+---
+
+### ✍️ [writing-files.go](./writing-files.go)
+**Writing Files**
+- Write entire file
+- Append operations
+- Buffered writing
+- Binary data writing
+
+**Key Concepts:**
+```go
+os.WriteFile(name, data, perm)
+file.WriteString(s)
+bufio.NewWriter(file)
+```
+
+---
+
+### 🔍 [line-filters.go](./line-filters.go)
+**Line Filters**
+- Filter by content
+- Transform lines
+- Count operations
+- Custom predicates
+
+**Key Concepts:**
+```go
+strings.HasPrefix(s, prefix)
+strings.Contains(s, substr)
+```
+
+---
+
+### 🛤️ [file-paths.go](./file-paths.go)
+**File Paths**
+- Path manipulation
+- Cross-platform paths
+- Directory operations
+- Path joining
+
+**Key Concepts:**
+```go
+filepath.Join(parts...)
+filepath.Dir(path)
+filepath.Base(path)
+```
+
+---
+
+### 📁 [directories.go](./directories.go)
+**Directory Operations**
+- Create directories
+- List contents
+- Directory traversal
+- Remove directories
+
+**Key Concepts:**
+```go
+os.Mkdir(name, perm)
+os.ReadDir(name)
+os.RemoveAll(name)
+```
+
+---
+
+### 📂 [temporary-files-and-directories.go](./temporary-files-and-directories.go)
+**Temporary Files and Directories**
+- Create temp files
+- Temp directory creation
+- Automatic cleanup
+- Temp file operations
+
+**Key Concepts:**
+```go
+os.CreateTemp(dir, pattern)
+os.MkdirTemp(dir, pattern)
+```
+
+---
+
+### 📎 [embed-directive.go](./embed-directive.go)
+**Embed Directive**
+- File embedding
+- Embedded file system
+- Resource access
+- Build-time inclusion
+
+**Key Concepts:**
+```go
+//go:embed pattern
+embed.FS
+```
+
+---
+
+### 🧪 [testing-and-benchmarking.go](./testing-and-benchmarking.go)
+**Testing and Benchmarking**
+- Unit tests
+- Table-driven tests
+- Benchmarks
+- Test helpers
+
+**Key Concepts:**
+```go
+func TestName(t *testing.T)
+func BenchmarkName(b *testing.B)
+```
+
+---
+
+### ⚙️ [command-line-arguments.go](./command-line-arguments.go)
+**Command Line Arguments**
+- Argument parsing
+- Flag detection
+- Argument validation
+- Usage help
+
+**Key Concepts:**
+```go
+os.Args
+flag.Parse()
+```
+
+---
+
+### 🚩 [command-line-flags.go](./command-line-flags.go)
+**Command Line Flags**
+- Flag definition
+- Default values
+- Flag validation
+- Help generation
+
+**Key Concepts:**
+```go
+flag.String(name, default, usage)
+flag.Int(name, default, usage)
+```
+
+---
+
+### 📋 [command-line-subcommands.go](./command-line-subcommands.go)
+**Command Line Subcommands**
+- Command routing
+- Subcommand flags
+- Command-specific help
+- CLI structure
+
+**Key Concepts:**
+```go
+flag.NewFlagSet(name, ErrorHandling)
+```
+
+---
+
+### 🌍 [environment-variables.go](./environment-variables.go)
+**Environment Variables**
+- Get/set variables
+- Variable validation
+- PATH handling
+- Configuration
+
+**Key Concepts:**
+```go
+os.Getenv(key)
+os.Setenv(key, value)
+os.Environ()
+```
+
+---
+
+### 📝 [logging.go](./logging.go)
+**Logging**
+- Basic logging
+- File logging
+- Log levels
+- Custom loggers
+
+**Key Concepts:**
+```go
+log.Println(message)
+log.New(writer, prefix, flags)
+```
+
+---
+
+### 🌐 [http-client.go](./http-client.go)
+**HTTP Client**
+- GET/POST requests
+- Custom headers
+- Timeout handling
+- Status code handling
+
+**Key Concepts:**
+```go
+http.Get(url)
+http.Post(url, contentType, body)
+http.Client{Timeout: duration}
+```
+
+---
+
+### 🖥️ [http-server.go](./http-server.go)
+**HTTP Server**
+- Route handling
+- Middleware
+- JSON responses
+- Form processing
+
+**Key Concepts:**
+```go
+http.HandleFunc(pattern, handler)
+http.ListenAndServe(addr, handler)
+```
+
+---
+
+### 🔌 [tcp-server.go](./tcp-server.go)
+**TCP Server**
+- TCP connections
+- Client handling
+- Command processing
+- Concurrent connections
+
+**Key Concepts:**
+```go
+net.Listen(tcp, addr)
+conn.Read(buffer)
+conn.Write(data)
+```
+
+---
+
+### 🎯 [context.go](./context.go)
+**Context**
+- Timeout handling
+- Cancellation
+- Value passing
+- Context propagation
+
+**Key Concepts:**
+```go
+context.WithTimeout(parent, duration)
+context.WithCancel(parent)
+context.WithValue(parent, key, value)
+```
+
+---
+
+### 🚀 [spawning-processes.go](./spawning-processes.go)
+**Spawning Processes**
+- Command execution
+- Output capture
+- Environment control
+- Process management
+
+**Key Concepts:**
+```go
+exec.Command(name, args...)
+cmd.Output()
+cmd.Run()
+```
+
+---
+
+### 🔄 [execing-processes.go](./execing-processes.go)
+**Exec'ing Processes**
+- Process replacement
+- Syscall exec
+- Security considerations
+- Process inheritance
+
+**Key Concepts:**
+```go
+syscall.Exec(path, args, env)
+exec.LookPath(name)
+```
+
+---
+
+### 📡 [signals.go](./signals.go)
+**Signal Handling**
+- Signal notification
+- Graceful shutdown
+- Signal masking
+- Multiple handlers
+
+**Key Concepts:**
+```go
+signal.Notify(ch, sig...)
+syscall.SIGINT
+syscall.SIGTERM
+```
+
+---
+
+### 🚪 [exit.go](./exit.go)
+**Exit Handling**
+- Exit codes
+- Graceful termination
+- Cleanup on exit
+- Error reporting
+
+**Key Concepts:**
+```go
+os.Exit(code)
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 - Go installed (version 1.18 or later)
@@ -859,12 +1403,21 @@ go build functions.go && ./functions
 11. **Error handling:** `errors.go` → `custom-errors.go`
 12. **Concurrency:** `goroutines.go` → `channels.go` → `channel-buffering.go`
 
+#### 🌐 Practical Level
+13. **String & Text:** `string-functions.go` → `string-formatting.go` → `text-templates.go`
+14. **Data Processing:** `regular-expressions.go` → `json.go` → `xml.go`
+15. **Time & Numbers:** `time.go` → `epoch.go` → `time-formatting-parsing.go` → `random-numbers.go` → `number-parsing.go`
+16. **Files & I/O:** `reading-files.go` → `writing-files.go` → `line-filters.go` → `file-paths.go` → `directories.go` → `temporary-files-and-directories.go`
+17. **Web & Network:** `url-parsing.go` → `sha256-hashes.go` → `base64-encoding.go` → `http-client.go` → `http-server.go` → `tcp-server.go`
+18. **System & Tools:** `embed-directive.go` → `testing-and-benchmarking.go` → `command-line-arguments.go` → `command-line-flags.go` → `command-line-subcommands.go` → `environment-variables.go` → `logging.go` → `context.go` → `spawning-processes.go` → `execing-processes.go` → `signals.go` → `exit.go`
+
 #### 📚 Quick Reference
-- **Total Examples:** 28 files
+- **Total Examples:** 83 files
 - **Beginner:** 13 files
-- **Intermediate:** 7 files  
-- **Advanced:** 8 files
-- **Estimated Learning Time:** 2-4 weeks
+- **Intermediate:** 15 files  
+- **Advanced:** 20 files
+- **Practical:** 35 files
+- **Estimated Learning Time:** 4-6 weeks
 
 ### Code Style
 
