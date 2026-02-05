@@ -483,6 +483,341 @@ select { case ch <- val: default: }
 
 ---
 
+## 🔧 Expert Go Concepts
+
+### 🚀 **Expert Examples (20 files)**
+
+### 🔄 [channel-synchronization.go](./channel-synchronization.go)
+**Channel Synchronization**
+- Basic synchronization patterns
+- Pipeline coordination
+- Producer-consumer patterns
+- Resource access control
+
+**Key Concepts:**
+```go
+done := make(chan bool)
+<-done // Wait for completion
+close(done) // Signal completion
+```
+
+---
+
+### 🎯 [channel-directions.go](./channel-directions.go)
+**Channel Directions**
+- Send-only channels
+- Receive-only channels
+- Function parameters with directions
+- Type safety with directional channels
+
+**Key Concepts:**
+```go
+var sendOnly chan<- int
+var receiveOnly <-chan int
+func sendData(ch chan<- int) { }
+```
+
+---
+
+### 🔀 [select.go](./select.go)
+**Select Statements**
+- Multiple channel operations
+- Non-blocking selects
+- Timeout patterns
+- Random selection
+
+**Key Concepts:**
+```go
+select {
+case <-ch1:
+case <-ch2:
+default:
+}
+```
+
+---
+
+### ⏱️ [timeouts.go](./timeouts.go)
+**Timeout Patterns**
+- Basic timeouts with time.After
+- Timeout with error handling
+- Retry mechanisms
+- Circuit breaker patterns
+
+**Key Concepts:**
+```go
+select {
+case <-ch:
+case <-time.After(timeout):
+}
+```
+
+---
+
+### 🚫 [non-blocking-channel-operations.go](./non-blocking-channel-operations.go)
+**Non-Blocking Channel Operations**
+- Non-blocking sends/receives
+- Backpressure handling
+- Load shedding
+- Health checks
+
+**Key Concepts:**
+```go
+select {
+case ch <- value:
+default:
+    // Channel blocked
+}
+```
+
+---
+
+### 🔒 [closing-channels.go](./closing-channels.go)
+**Channel Closing**
+- Safe channel closing
+- Detecting closed channels
+- Graceful shutdown
+- Resource cleanup
+
+**Key Concepts:**
+```go
+close(ch)
+value, ok := <-ch
+for value := range ch { }
+```
+
+---
+
+### 📡 [range-over-channels.go](./range-over-channels.go)
+**Range Over Channels**
+- Basic channel iteration
+- Early termination
+- Multiplexing with select
+- Statistics collection
+
+**Key Concepts:**
+```go
+for value := range ch {
+    // Process value
+}
+```
+
+---
+
+### ⏰ [timers.go](./timers.go)
+**Timer Operations**
+- Basic timer usage
+- Timer reset and stop
+- Timeout patterns
+- Debouncing
+
+**Key Concepts:**
+```go
+timer := time.NewTimer(duration)
+<-timer.C
+timer.Reset(duration)
+```
+
+---
+
+### 🔄 [tickers.go](./tickers.go)
+**Ticker Operations**
+- Periodic operations
+- Rate limiting
+- Heartbeat patterns
+- Monitoring
+
+**Key Concepts:**
+```go
+ticker := time.NewTicker(interval)
+<-ticker.C
+ticker.Stop()
+```
+
+---
+
+### 👥 [worker-pools.go](./worker-pools.go)
+**Worker Pools**
+- Basic worker pools
+- Dynamic scaling
+- Load balancing
+- Circuit breakers
+
+**Key Concepts:**
+```go
+jobs := make(chan Job, 100)
+results := make(chan Result, 100)
+for w := 1; w <= numWorkers; w++ {
+    go worker(w, jobs, results)
+}
+```
+
+---
+
+### ⏳ [waitgroups.go](./waitgroups.go)
+**WaitGroup Synchronization**
+- Basic WaitGroup usage
+- Nested WaitGroups
+- Error handling
+- Progress tracking
+
+**Key Concepts:**
+```go
+var wg sync.WaitGroup
+wg.Add(1)
+go func() { defer wg.Done() }()
+wg.Wait()
+```
+
+---
+
+### 🚦 [rate-limiting.go](./rate-limiting.go)
+**Rate Limiting**
+- Token bucket algorithm
+- Sliding window
+- Leaky bucket
+- Adaptive control
+
+**Key Concepts:**
+```go
+ticker := time.NewTicker(rate)
+<-ticker.C // Rate limit
+```
+
+---
+
+### 🔢 [atomic-counters.go](./atomic-counters.go)
+**Atomic Operations**
+- Atomic counters
+- Compare and swap
+- Memory barriers
+- Lock-free programming
+
+**Key Concepts:**
+```go
+atomic.AddInt64(&counter, 1)
+atomic.CompareAndSwapInt64(&ptr, old, new)
+atomic.LoadInt64(&value)
+```
+
+---
+
+### 🔐 [mutexes.go](./mutexes.go)
+**Mutex Synchronization**
+- Basic mutex usage
+- RWMutex for readers/writers
+- Defer unlock
+- Deadlock prevention
+
+**Key Concepts:**
+```go
+var mu sync.Mutex
+mu.Lock()
+defer mu.Unlock()
+var rwMu sync.RWMutex
+rwMu.RLock()
+```
+
+---
+
+### 🧠 [stateful-goroutines.go](./stateful-goroutines.go)
+**Stateful Goroutines**
+- Maintaining state
+- Thread-safe operations
+- State management patterns
+- Concurrent state updates
+
+**Key Concepts:**
+```go
+type Worker struct {
+    mu    sync.Mutex
+    state int
+}
+```
+
+---
+
+### 📊 [sorting.go](./sorting.go)
+**Sorting Operations**
+- Basic slice sorting
+- Custom type sorting
+- Reverse sorting
+- Partial sorting
+
+**Key Concepts:**
+```go
+sort.Ints(slice)
+sort.Strings(slice)
+sort.Slice(custom, func(i, j int) bool { })
+```
+
+---
+
+### 🎯 [sorting-by-functions.go](./sorting-by-functions.go)
+**Custom Sorting**
+- Multi-criteria sorting
+- Custom comparators
+- Complex sorting logic
+- Performance optimization
+
+**Key Concepts:**
+```go
+sort.Slice(items, func(i, j int) bool {
+    return items[i].field < items[j].field
+})
+```
+
+---
+
+### 😱 [panic.go](./panic.go)
+**Panic Handling**
+- Basic panic usage
+- Panic sources
+- Panic vs errors
+- Safe operations
+
+**Key Concepts:**
+```go
+panic("error message")
+var slice []int
+slice[0] = 1 // Panics
+```
+
+---
+
+### ⏪ [defer.go](./defer.go)
+**Defer Statements**
+- Basic defer usage
+- LIFO execution order
+- Resource cleanup
+- Function return values
+
+**Key Concepts:**
+```go
+defer file.Close()
+defer fmt.Println("cleanup")
+```
+
+---
+
+### 🛡️ [recover.go](./recover.go)
+**Panic Recovery**
+- Basic recover patterns
+- Error handling
+- Cleanup on panic
+- Goroutine recovery
+
+**Key Concepts:**
+```go
+defer func() {
+    if r := recover(); r != nil {
+        // Handle panic
+    }
+}()
+```
+
+---
+
 ## � Getting Started
 
 ### Prerequisites
